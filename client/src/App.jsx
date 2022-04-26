@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import styled from "styled-components";
 import Navbar from "./components/Navbar.jsx";
 import ProjectList from "./components/ProjectList.jsx";
 import ProjectForm from "./components/ProjectForm.jsx";
