@@ -34,3 +34,8 @@ La carpeta db va a contener un archivo llamado db.js. Este va a tener la conexio
 
 6- Instalo npm i dotenv y creo la base de datos en postgres y ahora tengo que relacionarla con el proyecto
 Creo un archivo .env para cargar los datos
+
+Hago la conexion de la base de datos con la app
+
+7- Creo los modelos Task y Project que van a ser mis tablas de la DB
+
