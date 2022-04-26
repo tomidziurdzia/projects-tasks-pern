@@ -1,16 +1,16 @@
 import { Project } from "../models/Project.js";
 import { Task } from "../models/Task.js";
 
-export const getProjects = async (req, res) => {
+export const getProjects = async (req, res, next) => {
   try {
     const projects = await Project.findAll();
     res.json(projects);
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    next(error);
   }
 };
 
-export const createProject = async (req, res) => {
+export const createProject = async (req, res, next) => {
   const { title, description } = req.body;
 
   try {
@@ -20,21 +20,25 @@ export const createProject = async (req, res) => {
     });
     res.json(newProject);
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    next(error);
   }
 };
 
-export const updateProject = async (req, res) => {
-  const { id } = req.params;
-  const project = await Project.findOne({
-    where: { id },
-  });
-  project.set(req.body);
-  await project.save();
-  return res.json(project);
+export const updateProject = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const project = await Project.findOne({
+      where: { id },
+    });
+    project.set(req.body);
+    await project.save();
+    return res.json(project);
+  } catch (error) {
+    next(error);
+  }
 };
 
-export const deleteProject = async (req, res) => {
+export const deleteProject = async (req, res, next) => {
   try {
     const { id } = req.params;
     await Project.destroy({
@@ -44,11 +48,11 @@ export const deleteProject = async (req, res) => {
     });
     res.status(204).send("Eliminado Correctamente");
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    next(error);
   }
 };
 
-export const getProject = async (req, res) => {
+export const getProject = async (req, res, next) => {
   try {
     const { id } = req.params;
     const project = await Project.findOne({
@@ -58,16 +62,20 @@ export const getProject = async (req, res) => {
       return res.status(404).json({ message: "Proyecto no encontrado" });
     res.json(project);
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    next(error);
   }
 };
 
-export const getProjectTasks = async (req, res) => {
-  const { id } = req.params;
-  const tasks = await Task.findAll({
-    where: {
-      projectId: id,
-    },
-  });
-  res.json(tasks);
+export const getProjectTasks = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const tasks = await Task.findAll({
+      where: {
+        projectId: id,
+      },
+    });
+    res.json(tasks);
+  } catch (error) {
+    next(error);
+  }
 };

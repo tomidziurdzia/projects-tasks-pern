@@ -13,4 +13,10 @@ app.use(express.json());
 app.use(tasksRoutes);
 app.use(projectRoutes);
 
+app.use((err, req, res, next) => {
+  return res.json({
+    message: "Error",
+  });
+});
+
 export default app;
