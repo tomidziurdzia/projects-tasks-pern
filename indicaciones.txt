@@ -28,3 +28,9 @@ Modifico el package.json
 },
 
 Uso el comando npm run dev para levantar el servidor
+
+5- Creo carpetas dentro de src llamadas db, routes, controllers, models
+La carpeta db va a contener un archivo llamado db.js. Este va a tener la conexion a la base de datos
+
+6- Instalo npm i dotenv y creo la base de datos en postgres y ahora tengo que relacionarla con el proyecto
+Creo un archivo .env para cargar los datos
