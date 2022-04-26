@@ -39,3 +39,4 @@ Hago la conexion de la base de datos con la app
 
 7- Creo los modelos Task y Project que van a ser mis tablas de la DB
 
+8- Creo las rutas, las relaciono con los modelos y despues tengo que importarlas a index.js 

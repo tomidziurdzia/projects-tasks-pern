@@ -4,7 +4,7 @@ import { sequelize } from "./db/db.js";
 import "./models/Project.js";
 
 const main = async () => {
-  await sequelize.sync({ force: false });
+  await sequelize.sync({ force: true });
   try {
     await sequelize.sync();
     console.log("Connection has been established successfully");
