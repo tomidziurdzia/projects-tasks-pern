@@ -1,4 +1,5 @@
 import { Project } from "../models/Project.js";
+import { Task } from "../models/Task.js";
 
 export const getProjects = async (req, res) => {
   try {
@@ -61,6 +62,12 @@ export const getProject = async (req, res) => {
   }
 };
 
-export const getProjectTasks = (req, res) => {
-  res.send("Obteniendo tareas de un proyecto");
+export const getProjectTasks = async (req, res) => {
+  const { id } = req.params;
+  const tasks = await Task.findAll({
+    where: {
+      projectId: id,
+    },
+  });
+  res.json(tasks);
 };
