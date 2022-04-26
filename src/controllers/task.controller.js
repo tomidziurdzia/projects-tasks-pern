@@ -25,14 +25,41 @@ export const createTask = async (req, res) => {
   }
 };
 
-export const updateTask = (req, res) => {
-  res.send("Editando Tareas");
+export const updateTask = async (req, res) => {
+  const { id } = req.params;
+  const task = await Task.findOne({
+    where: { id },
+  });
+  task.set(req.body);
+  await task.save();
+  return res.json(task);
 };
 
-export const deleteTask = (req, res) => {
-  res.send("Eliminando Tarea");
+export const deleteTask = async (req, res) => {
+  try {
+    const { id } = req.params;
+    await Task.destroy({
+      where: {
+        id,
+      },
+    });
+    res.status(204).send("Eliminado correctamente");
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
 };
 
-export const getTask = (req, res) => {
-  res.send("Obteniendo Tarea");
+export const getTask = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const task = await Task.findOne({
+      where: {
+        id,
+      },
+    });
+    if (!task) return res.status(404).json({ message: "Tarea no encontrada" });
+    res.json(task);
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
 };
