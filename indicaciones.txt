@@ -43,3 +43,18 @@ Hago la conexion de la base de datos con la app
 
 9- Instalo cors para unir back con front 
 npm i cors
+
+
+CONFIGURANDO REACT
+1- npm create vite@latest
+cd client
+npm install
+
+2- npm i react-router-dom
+
+3- Reset App.jsx
+
+4- Cree un par de componentes. Seguro despues modifique algo
+
+5- Instalo styled-components
+npm i -S styled-components
