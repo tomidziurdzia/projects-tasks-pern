@@ -1,45 +1,27 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import "./App.css";
+import Navbar from "../components/Navbar";
+import ProjectList from "../components/ProjectList";
+import FormTask from "../components/FormTask";
+import FormProject from "../components/FormProject";
+import Project from "../components/Project";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
+    <>
+      <header>
+        <Navbar />
       </header>
-    </div>
-  )
-}
+      <main>
+        <Routes>
+          <Route path="/" element={<ProjectList />}></Route>
+          <Route path="/tasks/new" element={<FormTask />}></Route>
+          <Route path="/projects/new" element={<FormProject />}></Route>
+          <Route path="/project/:id" element={<Project />}></Route>
+        </Routes>
+      </main>
+    </>
+  );
+};
 
-export default App
+export default App;
