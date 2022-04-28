@@ -1,0 +1,8 @@
+.projects__container {
+  background-color: #dae5d0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  padding: 2rem;
+  gap: 2rem;
+}
