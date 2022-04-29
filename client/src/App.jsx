@@ -1,12 +1,24 @@
-import { useState } from "react";
-import logo from "./logo.svg";
 import "./index.css";
-import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import ProjectList from "../components/ProjectList";
+import FormProject from "../components/FormProject";
 
-function App() {
-  const [count, setCount] = useState(0);
-
-  return <h1 class="text-3xl font-bold underline">Hello world!</h1>;
-}
+const App = () => {
+  return (
+    <Router>
+      <header>
+        <Navbar />
+      </header>
+      <main className="bg-color3 mt-3 h-4/6">
+        <Routes>
+          <Route path="/" element={<ProjectList />} />
+          <Route path="/projects/new" element={<FormProject />}></Route>
+        </Routes>
+      </main>
+      <footer></footer>
+    </Router>
+  );
+};
 
 export default App;
