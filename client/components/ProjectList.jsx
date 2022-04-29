@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Project from "../Project/Project";
-import s from "./ProjectList.module.css";
+import Project from "./Project";
 
 const ProjectList = () => {
   const [projects, setProjects] = useState([]);
@@ -18,7 +17,7 @@ const ProjectList = () => {
   }, []);
 
   return (
-    <div className={s.projects__container}>
+    <div>
       {projects.map((project) => (
         <Link key={project.id} to={`/projects/${project.id}`}>
           <Project project={project}>{project.title}</Project>

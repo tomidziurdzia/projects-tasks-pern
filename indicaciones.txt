@@ -56,5 +56,11 @@ npm install
 
 4- Cree un par de componentes. Seguro despues modifique algo
 
-5- Instalo styled-components
-npm i -S styled-components
+5- Instalo Tailwind para el css
+npm install -D tailwindcss postcss autoprefixer
+
+ahora
+npx tailwindcss init -p
+
+En tailwind.config.js modifico lo siguiente:
+content: ["./src/**/*.{html,js}"]

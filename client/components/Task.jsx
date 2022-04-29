@@ -5,7 +5,7 @@ const Task = ({ task }) => {
   return (
     <div>
       <p>{name}</p>
-      <p>{done}</p>
+      <p>{done ? "Terminada" : "Sin terminar"}</p>
     </div>
   );
 };

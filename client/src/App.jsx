@@ -1,10 +1,11 @@
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import "./index.css";
 import "./App.css";
-import Navbar from "../components/Navbar/Navbar";
-import ProjectList from "../components/ProjectList/ProjectList";
-import FormTask from "../components/FormTask/FormTask";
-import FormProject from "../components/FormProject/FormProject";
-import Project from "../components/Project/Project";
+import Navbar from "../components/Navbar";
+import ProjectList from "../components/ProjectList";
+import FormTask from "../components/FormTask";
+import FormProject from "../components/FormProject";
+import Project from "../components/Project";
 
 const App = () => {
   return (
