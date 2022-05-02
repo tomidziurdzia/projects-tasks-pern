@@ -57,6 +57,7 @@ npm install
 4- Cree un par de componentes. Seguro despues modifique algo
 
 5- Instalo Tailwind para el css
+TENGO QUE INSTALAR LA VERSION 2
 npm install -D tailwindcss postcss autoprefixer
 
 ahora
@@ -64,3 +65,9 @@ npx tailwindcss init -p
 
 En tailwind.config.js modifico lo siguiente:
 content: ["./src/**/*.{html,js}"]
+
+
+6- Instalo formik
+npm install formik --save
+
+hice variosc omponentes y ahora voy a hacer el formulario
